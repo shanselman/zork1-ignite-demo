@@ -1,0 +1,337 @@
+open mailbox
+take leaflet
+s
+e
+open window
+enter window
+take lamp
+w
+take sword
+move rug
+open trap door
+turn on lamp
+d
+s
+e
+take painting
+w
+n
+n
+e
+e
+open case
+put painting in case
+w
+w
+s
+w
+n
+e
+take rug
+w
+s
+e
+take torch
+w
+n
+s
+u
+open case
+put rug in case
+d
+s
+w
+s
+n
+climb
+u
+take egg
+d
+d
+s
+w
+s
+kill troll with sword
+kill troll with sword
+s
+e
+take sceptre
+w
+n
+n
+e
+n
+s
+u
+open case
+put sceptre in case
+d
+s
+w
+s
+n
+u
+take lamp
+e
+e
+ne
+take coffin
+sw
+w
+w
+s
+e
+n
+w
+n
+d
+s
+w
+s
+u
+open case
+put coffin in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+take trident
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put trident in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+n
+e
+n
+ne
+e
+open egg
+take canary
+drop egg
+w
+sw
+s
+w
+s
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put canary in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+n
+e
+n
+ne
+se
+s
+e
+take bauble
+w
+n
+nw
+ne
+sw
+w
+s
+w
+s
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put bauble in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+n
+e
+n
+ne
+n
+e
+take bracelet
+w
+s
+sw
+s
+w
+s
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put bracelet in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+n
+e
+n
+ne
+n
+n
+take coins
+s
+s
+sw
+s
+w
+s
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put coins in case
+d
+s
+e
+n
+e
+u
+n
+e
+e
+ne
+se
+e
+n
+e
+n
+ne
+n
+ne
+e
+ulysses
+e
+u
+kill thief with sword
+kill thief with sword
+kill thief with sword
+take all
+d
+w
+odysseus
+w
+s
+sw
+s
+w
+s
+w
+nw
+sw
+w
+w
+s
+w
+n
+d
+s
+w
+s
+u
+open case
+put all in case
+quit
+y
