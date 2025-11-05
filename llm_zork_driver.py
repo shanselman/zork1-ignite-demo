@@ -114,18 +114,22 @@ class LLMZorkDriver:
     
     def print_status(self, turn_num: int, command: str, state_summary: dict):
         """Print current status to console"""
-        print(f"\n{'='*80}")
+        # Don't clear screen - use simple separators
+        print(f"\n{'─'*80}")
         
-        # Show turn and score prominently on same line
+        # Always show score, even if we have to use last known score
         score_str = ""
         if state_summary.get('score'):
             score, max_score = state_summary['score']
             score_str = f" | 🏆 Score: {score}/{max_score}"
             self.current_score = score
+            self.max_score = max_score
+        else:
+            # Always show last known score if current turn didn't update it
+            score_str = f" | 🏆 Score: {self.current_score}/{self.max_score}"
         
         print(f"🔄 Turn {turn_num}/{self.max_turns}{score_str}")
-        print(f"{'='*80}")
-        print(f"🤖 LLM Command: {command}")
+        print(f"🤖 Command: {command}")
         
         if state_summary.get('location'):
             print(f"📍 Location: {state_summary['location']}")
@@ -139,7 +143,7 @@ class LLMZorkDriver:
         if state_summary.get('is_victory'):
             print("🎉 VICTORY! Game completed!")
         
-        print(f"\n📜 Game Response:")
+        print(f"\n📜 Response:")
         print(state_summary['output'][:500])  # Show first 500 chars
         if len(state_summary['output']) > 500:
             print("... (truncated)")
