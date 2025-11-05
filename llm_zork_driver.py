@@ -115,17 +115,20 @@ class LLMZorkDriver:
     def print_status(self, turn_num: int, command: str, state_summary: dict):
         """Print current status to console"""
         print(f"\n{'='*80}")
-        print(f"🔄 Turn {turn_num}/{self.max_turns}")
+        
+        # Show turn and score prominently on same line
+        score_str = ""
+        if state_summary.get('score'):
+            score, max_score = state_summary['score']
+            score_str = f" | 🏆 Score: {score}/{max_score}"
+            self.current_score = score
+        
+        print(f"🔄 Turn {turn_num}/{self.max_turns}{score_str}")
         print(f"{'='*80}")
         print(f"🤖 LLM Command: {command}")
         
         if state_summary.get('location'):
             print(f"📍 Location: {state_summary['location']}")
-        
-        if state_summary.get('score'):
-            score, max_score = state_summary['score']
-            print(f"🏆 Score: {score}/{max_score}")
-            self.current_score = score
         
         if state_summary.get('is_error'):
             print("⚠️  Command not understood by game")
@@ -189,6 +192,15 @@ class LLMZorkDriver:
                 
                 # Parse the response
                 state = self.parser.summarize_state(game_output)
+                
+                # Periodically request score if not in output (every 5 turns)
+                if not state.get('score') and self.turn_count % 5 == 0:
+                    score_output = self.send_command('score')
+                    score_state = self.parser.summarize_state(score_output)
+                    if score_state.get('score'):
+                        state['score'] = score_state['score']
+                        # Add score info to the output
+                        game_output += f"\n[Score check: {score_state['score'][0]}/{score_state['score'][1]}]"
                 
                 # Track errors
                 if state.get('is_error'):
