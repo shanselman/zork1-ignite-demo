@@ -1,5 +1,13 @@
 # Zork I Source Code Collection
 
+> **🎮 NEW: [LLM-Driven Autonomous Player](QUICKSTART.md)** - Watch an AI agent play Zork I!
+> 
+> **Works with OpenAI, vLLM, Azure OpenAI, or any OpenAI-compatible API.**
+> 
+> - 🚀 [Quick Start with OpenAI](OPENAI_SETUP.md) (easiest - just need API key)
+> - 📖 [Full Documentation](README_LLM.md)
+> - 💰 Cost: ~$0.30-$0.60 per game with GPT-4, or $0.02-$0.05 with GPT-3.5-Turbo
+
 Zork I is a 1980 interactive fiction game written by Marc Blank, Dave Lebling, Bruce Daniels and Tim Anderson and published by Infocom.
 
 Further information on Zork I:

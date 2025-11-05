@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  zork-llm:
+    build: .
+    image: zork-llm-player:latest
+    container_name: zork-llm-player
+    environment:
+      - VLLM_API_URL=${VLLM_API_URL:-http://host.docker.internal:8000/v1}
+      - VLLM_MODEL_NAME=${VLLM_MODEL_NAME:-meta-llama/Llama-3.1-8B-Instruct}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-EMPTY}
+      - MAX_TURNS=${MAX_TURNS:-500}
+    volumes:
+      # Mount logs directory to persist results
+      - ./logs:/app/logs
+    stdin_open: true
+    tty: true
+    # Use host network on Linux to access host's vLLM server
+    # network_mode: host
+    # Or use extra_hosts on Mac/Windows
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
