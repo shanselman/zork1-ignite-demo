@@ -64,12 +64,33 @@ class ZorkGameParser:
     def extract_location(self, text: str) -> Optional[str]:
         """Try to extract current location from game output"""
         lines = text.split('\n')
-        for line in lines:
-            # Location names are usually title-cased and end with period or newline
-            if line and line[0].isupper() and len(line) < 100:
-                # Check if it looks like a location (not a sentence)
-                if not line.startswith('You') and not line.startswith('The'):
-                    return line.strip()
+        
+        # Look for location in first few lines
+        for i, line in enumerate(lines[:5]):
+            line = line.strip()
+            if not line:
+                continue
+                
+            # Location names are typically:
+            # - Short (less than 60 chars)
+            # - Start with capital letter
+            # - Not full sentences (no verbs like "You are", "The door", etc.)
+            # - Often standalone on first line
+            if line and len(line) < 60:
+                # Check if it looks like a location name
+                if line[0].isupper():
+                    # Skip common sentence starters
+                    if line.startswith(('You ', 'The ', 'There ', 'It ', 'A ', 'An ')):
+                        continue
+                    # Skip if it ends with common sentence endings
+                    if line.endswith(('.', '!', '?')):
+                        # But if it's very short, might still be location
+                        if len(line) < 30 and i < 2:
+                            return line.rstrip('.!?')
+                        continue
+                    # Likely a location name
+                    return line
+        
         return None
     
     def parse_inventory(self, text: str) -> List[str]:
