@@ -4,6 +4,19 @@
 
 An autonomous AI agent that plays Zork I by querying an LLM API (OpenAI, vLLM, Azure, etc.). Watch an AI explore the Great Underground Empire!
 
+## 📦 Initial Setup
+
+**First time cloning?** Make sure to get the Fic interpreter submodule:
+
+```bash
+# If cloning for the first time
+git clone --recurse-submodules https://github.com/yourusername/zork1-ignite-demo.git
+
+# OR if you already cloned without submodules
+cd zork1-ignite-demo
+git submodule update --init --recursive
+```
+
 ## 🚀 Quick Start with OpenAI
 
 **Most users will want to use OpenAI (easiest setup):**

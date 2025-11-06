@@ -18,6 +18,18 @@ Further information on Zork I:
 * [The Infocom Gallery](http://gallery.guetech.org/zork1/zork1.html)
 * [IFWiki](http://www.ifwiki.org/index.php/Zork_I)
 
+__Getting Started__
+
+When cloning this repository, make sure to include the submodules (Fic interpreter):
+
+```bash
+# Clone with submodules
+git clone --recurse-submodules https://github.com/yourusername/zork1-ignite-demo.git
+
+# OR if you already cloned without submodules
+git submodule update --init --recursive
+```
+
 __What is this Repository?__
 
 This repository is a directory of source code for the Infocom game "Zork I", including a variety of files both used and discarded in the production of the game. It is written in ZIL (Zork Implementation Language), a refactoring of MDL (Muddle), itself a dialect of LISP created by MIT students and staff.
